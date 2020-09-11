@@ -1,0 +1,13 @@
+@import 'variables';
+
+/* TOOLTIP */
+#tooltip {
+  position: fixed;
+  font-size: $font-size-tooltip;
+  text-align: left;
+  width: 180px;
+  border: 1px solid $tooltip-border-color;
+  border-radius: 10px;
+  background: $tooltip-bg-color;
+  padding: 5px;
+}

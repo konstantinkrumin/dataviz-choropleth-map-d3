@@ -1,0 +1,16 @@
+@import 'variables';
+
+/* TITLE AND LEGEND */
+#title {
+  font-size: $font-size-title;
+  font-weight: bold;
+}
+
+#description {
+  font-size: $font-size-desc;
+}
+
+.legend-rect {
+  stroke: black;
+  stroke-width: 0.8;
+}

@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/dataviz-choropleth-map-d3/precache-manifest.7e8e2c3474b69d5552ca3bb380f6af86.js"
+  "/dataviz-choropleth-map-d3/precache-manifest.bf64b5dd5d53ab5b7272afd749135c86.js"
 );
 
 self.addEventListener('message', (event) => {

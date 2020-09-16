@@ -109,8 +109,8 @@ const render = (educationDataJSON, countyDataJSON, ref, width, height) => {
       tooltip.transition().duration(200).style('opacity', 0.8);
       tooltip
         .html(`${countyName(d)}, ${countyState(d)}: ${countyEducation(d)}%`)
-        .style('left', d3.event.pageX - 100 + 'px')
-        .style('top', d3.event.pageY - 80 + 'px')
+        .style('left', d3.event.pageX + 50 + 'px')
+        .style('top', d3.event.pageY - 40 + 'px')
         .attr('data-education', countyEducation(d));
     })
     .on('mouseout', (d) => {

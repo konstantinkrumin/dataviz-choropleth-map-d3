@@ -1,14 +1,14 @@
-import * as d3 from "d3";
-import { feature } from "topojson-client";
+import * as d3 from 'd3';
+import { feature } from 'topojson-client';
 
-import { createEducationGroupsArr } from "./createEducationGroupsArr";
-import { mapColoring } from "./mapColoring";
+import { createEducationGroupsArr } from './createEducationGroupsArr';
+import { mapColoring } from './mapColoring';
 
 const render = (educationDataJSON, countyDataJSON, ref, width, height) => {
   const svg = d3.select(ref.current);
 
   // define space for the Choropleth map
-  const margin = { top: 80, right: 300, bottom: 0, left: 300 };
+  const margin = { top: 0, right: 0, bottom: 0, left: 150 };
   const innerWidth = width - margin.right - margin.left;
   const innerHeight = height - margin.top - margin.bottom;
 
@@ -51,9 +51,11 @@ const render = (educationDataJSON, countyDataJSON, ref, width, height) => {
   const colorPalette = d3.schemeGreens[numOfSections];
 
   // Create and position axes text labels and the title
-  const titleText = "United States Educational Attainment";
-  const titleXAxisPos = innerWidth / 2;
-  const titleYAxisPos = -30;
+  const titleText = 'United States Educational Attainment';
+  // const titleXAxisPos = innerWidth / 2;
+  // const titleYAxisPos = 30;
+  const titleXAxisPos = -innerHeight / 2;
+  const titleYAxisPos = -100;
 
   const subtitleText =
     "Percentage of adults age 25 and older with a bachelor's degree or higher (2010-2014)";
@@ -61,64 +63,68 @@ const render = (educationDataJSON, countyDataJSON, ref, width, height) => {
 
   // define and append map to the svg
   const map = svg
-    .append("g")
-    .attr("id", "map")
-    .attr("transform", `translate(${margin.left}, ${margin.top})`);
+    .append('g')
+    .attr('id', 'map')
+    .attr('transform', `translate(${margin.left}, ${margin.top})`);
 
   // append the title section
-  const titleSection = map.append("g").attr("text-anchor", "middle");
+  const titleSection = map
+    .append('g')
+    .attr('text-anchor', 'middle')
+    .attr('transform', 'rotate(-90)'); // added
 
   titleSection
-    .append("text")
-    .attr("id", "title")
-    .attr("x", titleXAxisPos)
-    .attr("y", titleYAxisPos)
+    .append('text')
+    .attr('id', 'title')
+    .attr('x', titleXAxisPos)
+    .attr('y', titleYAxisPos)
     .text(titleText);
 
   titleSection
-    .append("text")
-    .attr("id", "description")
-    .attr("x", titleXAxisPos)
-    .attr("y", subtitleYAxisPos)
+    .append('text')
+    .attr('id', 'description')
+    .attr('x', titleXAxisPos)
+    .attr('y', subtitleYAxisPos)
     .text(subtitleText);
 
   // Default settings for the tooltips
   let tooltip = d3
-    .select("body")
-    .append("div")
-    .attr("id", "tooltip")
-    .style("opacity", 0);
+    .select('body')
+    .append('div')
+    .attr('id', 'tooltip')
+    .style('opacity', 0);
 
   // Append counties' info to the map
   map
-    .selectAll("path")
+    .selectAll('path')
     .data(counties.features)
     .enter()
-    .append("path")
-    .attr("class", "county")
-    .attr("d", d3.geoPath())
-    .attr("data-fips", (d) => countyFip(d))
-    .attr("data-education", (d) => countyEducation(d))
-    .attr("fill", (d) =>
+    .append('path')
+    .attr('class', 'county')
+    .attr('d', d3.geoPath())
+    .attr('data-fips', (d) => countyFip(d))
+    .attr('data-education', (d) => countyEducation(d))
+    .attr('fill', (d) =>
       mapColoring(countyEducation(d), colorPalette, groupsArr)
     )
-    .on("mouseover", (d) => {
-      tooltip.transition().duration(200).style("opacity", 0.8);
+    .on('mouseover', (d) => {
+      tooltip.transition().duration(200).style('opacity', 0.8);
       tooltip
         .html(`${countyName(d)}, ${countyState(d)}: ${countyEducation(d)}%`)
-        .style("left", d3.event.pageX - 200 + "px")
-        .style("top", d3.event.pageY - 80 + "px")
-        .attr("data-education", countyEducation(d));
+        .style('left', d3.event.pageX - 200 + 'px')
+        .style('top', d3.event.pageY - 80 + 'px')
+        .attr('data-education', countyEducation(d));
     })
-    .on("mouseout", (d) => {
-      tooltip.transition().duration(500).style("opacity", 0);
+    .on('mouseout', (d) => {
+      tooltip.transition().duration(500).style('opacity', 0);
     });
 
   // Add the legend to the visualization
   const legend = svg
-    .append("g")
-    .attr("id", "legend")
-    .attr("transform", `translate(${margin.left + 550}, ${margin.top - 650})`);
+    .append('g')
+    .attr('id', 'legend')
+    // .attr('transform', `translate(${margin.left + 550}, ${margin.top - 650})`);
+    .attr('transform', `translate(${innerWidth / 2 + 150}, -580)`);
 
   const tempScale = d3
     .scaleLinear()
@@ -128,26 +134,26 @@ const render = (educationDataJSON, countyDataJSON, ref, width, height) => {
   const legendXAxis = d3
     .axisBottom(tempScale)
     .tickValues(groupsArr)
-    .tickFormat((d) => Math.round(d) + "%")
+    .tickFormat((d) => Math.round(d) + '%')
     .tickSizeOuter(0);
 
   legend
-    .append("g")
-    .attr("id", "legend-x-axis")
-    .attr("transform", `translate(0, ${innerHeight + 10})`)
+    .append('g')
+    .attr('id', 'legend-x-axis')
+    .attr('transform', `translate(0, ${innerHeight + 10})`)
     .call(legendXAxis);
 
   legend
-    .selectAll("rect")
+    .selectAll('rect')
     .data(groupsArr)
     .enter()
-    .append("rect")
-    .attr("class", "legend-rect")
-    .attr("x", (d, i) => i * legendBarWidth)
-    .attr("transform", `translate(0, ${innerHeight - 10})`)
-    .attr("width", legendBarWidth)
-    .attr("height", 20)
-    .attr("fill", (d) => mapColoring(d, colorPalette, groupsArr)); //fill with palette accordingly
+    .append('rect')
+    .attr('class', 'legend-rect')
+    .attr('x', (d, i) => i * legendBarWidth)
+    .attr('transform', `translate(0, ${innerHeight - 10})`)
+    .attr('width', legendBarWidth)
+    .attr('height', 20)
+    .attr('fill', (d) => mapColoring(d, colorPalette, groupsArr)); //fill with palette accordingly
 };
 
 export { render };

@@ -1,17 +1,23 @@
-@import 'variables';
-@import 'title-and-legend';
-@import 'tooltip';
+@import "variables";
+@import "title-and-legend";
+@import "tooltip";
 
 /* MAIN */
-body {
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  margin: 0;
+// body {
+//   position: fixed;
+//   left: 0;
+//   right: 0;
+//   top: 0;
+//   bottom: 0;
+//   margin: 0;
+//   font-family: $main-font;
+// }
+
+.graph {
   font-family: $main-font;
-} 
+  margin: 0 auto;
+  border: 1px solid magenta;
+}
 
 .county {
   stroke: black;

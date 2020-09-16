@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "37dfbc3fe9a7dd013ce107e1780dacb2",
+    "revision": "f6237d64bf8a8ce552ee177a40e01efd",
     "url": "/dataviz-choropleth-map-d3/index.html"
   },
   {
-    "revision": "b2644b4a374ae81cf96d",
-    "url": "/dataviz-choropleth-map-d3/static/css/main.62979b5b.chunk.css"
+    "revision": "05d83ce791ef0a7e471c",
+    "url": "/dataviz-choropleth-map-d3/static/css/main.f2f66076.chunk.css"
   },
   {
     "revision": "d0dc8a94dbe988a7d379",
@@ -16,7 +16,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/dataviz-choropleth-map-d3/static/js/2.2f882ec1.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "b2644b4a374ae81cf96d",
+    "revision": "05d83ce791ef0a7e471c",
     "url": "/dataviz-choropleth-map-d3/static/js/main.cccb88d8.chunk.js"
   },
   {

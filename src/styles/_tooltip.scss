@@ -1,11 +1,12 @@
-@import 'variables';
+@import "variables";
 
 /* TOOLTIP */
 #tooltip {
   position: fixed;
   font-size: $font-size-tooltip;
+  font-family: $main-font;
   text-align: left;
-  width: 180px;
+  width: 100px;
   border: 1px solid $tooltip-border-color;
   border-radius: 10px;
   background: $tooltip-bg-color;

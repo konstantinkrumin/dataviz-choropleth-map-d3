@@ -3,20 +3,23 @@
 @import "tooltip";
 
 /* MAIN */
-// body {
-//   position: fixed;
-//   left: 0;
-//   right: 0;
-//   top: 0;
-//   bottom: 0;
-//   margin: 0;
-//   font-family: $main-font;
-// }
+@mixin positioning($position) {
+  top: $position;
+  left: $position;
+  -moz-transform: translateX(-$position) translateY(-$position);
+  -webkit-transform: translateX(-$position) translateY(-$position);
+  transform: translateX(-$position) translateY(-$position);
+}
+
+svg {
+  position: absolute;
+  @include positioning(50%);
+}
 
 .graph {
   font-family: $main-font;
   margin: 0 auto;
-  border: 1px solid magenta;
+  background-color: white;
 }
 
 .county {

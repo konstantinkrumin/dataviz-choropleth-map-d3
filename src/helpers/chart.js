@@ -52,8 +52,6 @@ const render = (educationDataJSON, countyDataJSON, ref, width, height) => {
 
   // Create and position axes text labels and the title
   const titleText = 'United States Educational Attainment';
-  // const titleXAxisPos = innerWidth / 2;
-  // const titleYAxisPos = 30;
   const titleXAxisPos = -innerHeight / 2;
   const titleYAxisPos = -100;
 
@@ -71,7 +69,7 @@ const render = (educationDataJSON, countyDataJSON, ref, width, height) => {
   const titleSection = map
     .append('g')
     .attr('text-anchor', 'middle')
-    .attr('transform', 'rotate(-90)'); // added
+    .attr('transform', 'rotate(-90)');
 
   titleSection
     .append('text')
@@ -111,7 +109,7 @@ const render = (educationDataJSON, countyDataJSON, ref, width, height) => {
       tooltip.transition().duration(200).style('opacity', 0.8);
       tooltip
         .html(`${countyName(d)}, ${countyState(d)}: ${countyEducation(d)}%`)
-        .style('left', d3.event.pageX - 200 + 'px')
+        .style('left', d3.event.pageX - 100 + 'px')
         .style('top', d3.event.pageY - 80 + 'px')
         .attr('data-education', countyEducation(d));
     })
@@ -123,7 +121,6 @@ const render = (educationDataJSON, countyDataJSON, ref, width, height) => {
   const legend = svg
     .append('g')
     .attr('id', 'legend')
-    // .attr('transform', `translate(${margin.left + 550}, ${margin.top - 650})`);
     .attr('transform', `translate(${innerWidth / 2 + 150}, -580)`);
 
   const tempScale = d3

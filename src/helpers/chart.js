@@ -47,6 +47,9 @@ const render = (educationDataJSON, countyDataJSON, ref, width, height) => {
   const legendWidth = 300;
   const legendBarWidth = legendWidth / numOfSections;
 
+  const legendPositioningX = innerWidth / 2 + 150;
+  const legendPositioningY = -580;
+
   // Define the color scheme
   const colorPalette = d3.schemeGreens[numOfSections];
 
@@ -121,7 +124,10 @@ const render = (educationDataJSON, countyDataJSON, ref, width, height) => {
   const legend = svg
     .append('g')
     .attr('id', 'legend')
-    .attr('transform', `translate(${innerWidth / 2 + 150}, -580)`);
+    .attr(
+      'transform',
+      `translate(${legendPositioningX}, ${legendPositioningY})`
+    );
 
   const tempScale = d3
     .scaleLinear()

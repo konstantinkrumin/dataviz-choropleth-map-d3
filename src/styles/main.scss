@@ -33,3 +33,10 @@ svg {
     stroke-opacity: 1;
   }
 }
+
+@media (max-width: 500px) {
+  #tooltip {
+    width: 50px;
+    font-size: 0.6em;
+  }
+}

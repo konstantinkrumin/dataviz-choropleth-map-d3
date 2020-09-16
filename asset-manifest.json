@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/dataviz-choropleth-map-d3/static/css/main.456c74c5.chunk.css",
-    "main.js": "/dataviz-choropleth-map-d3/static/js/main.a34c1e64.chunk.js",
-    "main.js.map": "/dataviz-choropleth-map-d3/static/js/main.a34c1e64.chunk.js.map",
+    "main.css": "/dataviz-choropleth-map-d3/static/css/main.fcd45f16.chunk.css",
+    "main.js": "/dataviz-choropleth-map-d3/static/js/main.269f1b6d.chunk.js",
+    "main.js.map": "/dataviz-choropleth-map-d3/static/js/main.269f1b6d.chunk.js.map",
     "runtime-main.js": "/dataviz-choropleth-map-d3/static/js/runtime-main.39126bc4.js",
     "runtime-main.js.map": "/dataviz-choropleth-map-d3/static/js/runtime-main.39126bc4.js.map",
     "static/js/2.2f882ec1.chunk.js": "/dataviz-choropleth-map-d3/static/js/2.2f882ec1.chunk.js",
     "static/js/2.2f882ec1.chunk.js.map": "/dataviz-choropleth-map-d3/static/js/2.2f882ec1.chunk.js.map",
     "index.html": "/dataviz-choropleth-map-d3/index.html",
-    "precache-manifest.ef15e38ab7aee478f6cc1eb003a5a90e.js": "/dataviz-choropleth-map-d3/precache-manifest.ef15e38ab7aee478f6cc1eb003a5a90e.js",
+    "precache-manifest.7e8e2c3474b69d5552ca3bb380f6af86.js": "/dataviz-choropleth-map-d3/precache-manifest.7e8e2c3474b69d5552ca3bb380f6af86.js",
     "service-worker.js": "/dataviz-choropleth-map-d3/service-worker.js",
-    "static/css/main.456c74c5.chunk.css.map": "/dataviz-choropleth-map-d3/static/css/main.456c74c5.chunk.css.map",
+    "static/css/main.fcd45f16.chunk.css.map": "/dataviz-choropleth-map-d3/static/css/main.fcd45f16.chunk.css.map",
     "static/js/2.2f882ec1.chunk.js.LICENSE.txt": "/dataviz-choropleth-map-d3/static/js/2.2f882ec1.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.39126bc4.js",
     "static/js/2.2f882ec1.chunk.js",
-    "static/css/main.456c74c5.chunk.css",
-    "static/js/main.a34c1e64.chunk.js"
+    "static/css/main.fcd45f16.chunk.css",
+    "static/js/main.269f1b6d.chunk.js"
   ]
 }

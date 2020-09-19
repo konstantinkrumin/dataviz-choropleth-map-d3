@@ -1,6 +1,6 @@
 {
-  "short_name": "DataViz Bar Chart",
-  "name": "Data Visualization Bar Chart",
+  "short_name": "DataViz Choropleth Map",
+  "name": "Data Vizualization Choropleth Map",
   "icons": [
     {
       "src": "favicon.ico",
